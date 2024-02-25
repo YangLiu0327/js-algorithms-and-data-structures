@@ -52,4 +52,19 @@ class StudentFunction {
 
 let OurStudent = new StudentFunction('colt', 'steele', 2)
 
-console.log(OurStudent.calculateAverage())
+// console.log(OurStudent.calculateAverage())
+
+class newStudent{
+    constructor(firsName,lastName) {
+        this.firsName = firsName;
+        this.lastName =lastName;
+    }
+    fullname() {
+        return `Your full name is ${this.firsName} ${this.lastName}`
+    }
+    static enroll(){
+        return 'Enroll students'
+    }
+}
+
+let newStudent1 = new newStudent('colt', 'steele')
