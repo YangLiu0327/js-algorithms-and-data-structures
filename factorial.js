@@ -5,10 +5,18 @@
 //  e.g., factorial four ( 4! ) is equal to 24, 
 //  because 4 * 3 * 2 * 1 equals 24.  factorial zero (0!) is always 1.
 
-function factorial(num) {
-  if (num === 1 || num === 0) return 1;
-  return num * factorial(num - 1);
+// function factorial(num) {
+//   if (num === 1 || num === 0) return 1;
+//   return num * factorial(num - 1);
 
+// }
+
+function factorial(num) {
+  let result = 1;
+  for (let i =1; i<=num; i++) {
+    result *= i;
+  }
+  return result;
 }
 
-console.log(factorial(2))
+console.log(factorial(4))
