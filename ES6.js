@@ -1,3 +1,5 @@
+// https://dmitripavlutin.com/operations-on-arrays-javascript/
+// https://dmitripavlutin.com/javascript-this-interview-questions/#question-1-variable-vs-property
 // 1. var let and const
 // var is function scope, it means if the variable is declard within a function
 // it can be accessed within the function
