@@ -51,6 +51,49 @@ class BinarySearchTree {
         }
         return false;
     }
+    BFS(){
+        var node = this.root,
+        data = [];
+        let queue = [];
+        queue.push(node);
+        while(queue.length){
+            node = queue.shift();
+            data.push(node.value);
+            if(node.left) queue.push(node.left);
+            if(node.right) queue.push(node.right);
+        }
+        return data;
+    }
+    DFSPreOder(){
+        var data = [];
+        function traversal(node) {
+            data.push(node.value);
+            if(node.left) traversal(node.left);
+            if(node.right) traversal(node.right);
+        }
+        traversal(this.root);
+        return data;
+    }
+    DFSPostOrder() {
+        var data = [];
+        function traversal(node) {
+            node.left && traversal(node.left);
+            node.right &&  traversal(node.right);
+            data.push(node.value);
+        }
+        traversal(this.root);
+        return data;
+    }
+    DFSInOrder(){
+        var data = [];
+        function traversal(node) {
+            node.left && traversal(node.left);
+            data.push(node.value);
+            node.right && traversal(node.right);
+        }
+        traversal(this.root);
+        return data;
+    }
 }   
 
 var tree = new BinarySearchTree();
@@ -67,4 +110,5 @@ console.log(tree)
 //  5      13
 // 2  7  11  16
 
-console.log(tree.contains(16))
+// console.log(tree.contains(16))
+console.log(tree.DFSInOrder())
