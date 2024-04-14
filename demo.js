@@ -6,13 +6,13 @@ function addUpto(n) {
   }
   return total;
 }
-// console.log(addUpto(3))
+console.log(addUpto(3))
 
 // refactor
 function newAddUpto(n) {
   return (n * (n + 1) / 2)
 }
-// console.log(newAddUpto(3))
+console.log(newAddUpto(3))
 
 // 2. count up and down
 function countUpAndDown(n) {
@@ -50,7 +50,7 @@ function sum(arr) {
   }
   return total;
 }
-// console.log(sum([1, 2, 5]))
+console.log(sum([1, 2, 5]))
 
 function double(arr) {
   let newArr = [];
@@ -60,4 +60,3 @@ function double(arr) {
   return newArr;
 }
 console.log(double([1, 2]))
-
