@@ -199,3 +199,38 @@ const reverseBetween = function (head, m, n) {
     return dummy.next;
 }
 
+//环形链表基本问题
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+const hasCycle = function(head) {
+    while(head) {
+        if(head.flag) {
+            return true;
+        } else {
+            head.flag = true;
+            head = head.next;
+        }
+    }
+    return false;
+}
+//环形链表衍生问题——定位环的起点
+//真题描述：给定一个链表，返回链表开始入环的第一个结点。 如果链表无环，则返回 null。
+
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+const detectCycle = function(head) {
+    while(head) {
+        if(head.flag) {
+            return head;
+        } else {
+            head.flag = true;
+            head = head.next;
+        }
+    }
+    return null;
+}
+//快慢指针的思路
