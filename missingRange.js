@@ -66,3 +66,42 @@ function addString (num1, num2) {
 }
 
 // console.log(addString('1223', '555'))
+
+//697. Degree of an Array
+
+// Input: nums = [1,2,2,3,1]
+// Output: 2
+
+//思路： 记录每个元素的频率， 最先出现的位置 和最后出现的位置, 根据频率降序 根据数组的长度生序
+function findShortestSubArray(nums) {
+  let obj = {}
+  for (let i = 0; i<nums.length; i++) {
+    let char = nums[i];
+    obj[char] = (obj[char] || 0) + 1
+  }
+  console.log(obj, 'obj')
+  //最多的出现次数 value 
+  let values = Object.values(obj);
+  let maxNumber = Math.max(...values);
+  // [1,2]
+  let keysWithMaxNumber = Object.keys(obj).filter(key => obj[key] === maxNumber);
+  let result = [];
+  for(let i =0; i<keysWithMaxNumber.length; i++) {
+    let indexes = nums.map((num, index) => num == keysWithMaxNumber[i] ? index: -1)
+    .filter(index => index !== -1)
+    result.push(indexes[indexes.length -1] - indexes[0] + 1)    
+  }
+  return Math.min(...result)
+}
+function newfindShortestSubArray (nums) {
+  const countMap = {};
+  nums.forEach(num => countMap[num] = (countMap[nums] || 0) + 1);
+  const maxCount = Math.max(...Object.values(countMap));
+  const maxElements = Object.keys(countMap).filter(key => countMap[key] === maxCount);
+  const result = maxElements.map(el => {
+    const indexes = nums.map((num, index) => num == el ? index : -1).filter(index => index === -1)
+    return indexes[indexes.length - 1] - indexes[0] + 1;
+  })
+  return Math.min(...result);
+}
+console.log(newfindShortestSubArray([1,2,2,3,1,4,2]));
