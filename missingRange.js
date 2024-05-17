@@ -104,4 +104,113 @@ function newfindShortestSubArray (nums) {
   })
   return Math.min(...result);
 }
-console.log(newfindShortestSubArray([1,2,2,3,1,4,2]));
+// console.log(newfindShortestSubArray([1,2,2,3,1,4,2]));
+
+
+function test(arr){
+  let temp = arr[0]; 
+  let x = "hello"
+  temp = x;
+  arr[1] = temp;
+  arr.unshift(temp)
+  return arr;
+}
+
+// function test0(arr) {
+//   let temp = arr[0];
+//   let x = "test"
+//   temp = x;
+//   arr[1] = temp;
+//   arr.unshift(temp)
+// }
+ 
+// console.log(test(['a', 'b']))
+
+// function test1(...arr) {
+//   const set = new Set(arr);
+//   return set;
+// }
+// const name1 = "anna";
+// const name2 = "sam";
+// const name3 = "alex";
+
+// console.log(test1(name1, name2, name3, "anna"))
+
+// function test2(a, b) {
+//   return new Promise((res) => {
+//     setTimeout(() => {
+//       res(a+b)
+//     }, 1000)
+//   })
+// }
+// test2(1,2)
+// console.log(test2(1, 2)) //  Promise pending
+// test2(1,2).then(result => {
+//   console.log(result)
+// })
+
+class test3 {
+  name; // Declare the name property
+  constructor(name) {
+    this.name = name;
+  }
+  greeting(){
+    return "hi " + this.name;
+  }
+}
+
+const a = new test3('alex'); // providing a name alex when creating an instance
+a.greeting()
+console.log(a.greeting())
+
+
+// function test5(arr) {
+//   const m = new Map();
+//   console.log(m)
+//   for (let i =0; i<arr.length; i++) {
+//     let num = m.get(arr[i]) || 0;
+//     m.set(arr[i], num+1)
+//   }
+//   console.log(m)
+// }
+// test5([1,2,3,4])
+
+
+
+function test30(a) {
+	return Math.round(a * 1000) / 1000;
+}
+
+console.log(test30(1.68789))
+
+// function test4(str) {
+//   return Math.max(...str.split(' ').map(word => word.length))
+// }
+// console.log(test4('hi world'))
+
+function test5(arr) {
+  const m = new Map();
+  for (let i =0; i<arr.length; i++) {
+    let num = m.get(arr[i]) || 0;
+    m.set(arr[i], num+1)
+  }
+  return m;
+}
+console.log(test5([1,2,3,4, 1]))
+
+// const promiseExample = new Promise((res, rej) => {
+//   setTimeout(() => {
+//     const data = 'Promise resolved!'
+//     res(data)
+//   }, 2000)
+// })
+
+// promiseExample.then((res) => {
+//   console.log(res)
+// }).catch(err => {
+//   console.log(err)
+// })
+
+// function test11(a, b) {
+//   return a % b === 0
+// }
