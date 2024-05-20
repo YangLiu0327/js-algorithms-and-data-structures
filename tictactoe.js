@@ -196,4 +196,65 @@ var solution = function() {
 
 const findFirstBadVersion = solution()
 
-console.log(findFirstBadVersion(5))
+// console.log(findFirstBadVersion(5))
+
+
+// 283 move zeros
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeros = function(nums) {
+   let zeroArray = nums.filter((num) => num === 0);
+   let newArr = nums.filter((num) => num !== 0)
+   nums.length = 0;
+   nums.push(...newArr, ...zeroArray)
+   return nums;
+}
+// console.log(moveZeros([0,1,0,3,12]))
+
+// 0392 Is Subsequence 双指针,DP
+
+var isSubsequence = function(s,t) {
+   let i =0;
+   let j =0;
+   while(i<s.length && j<t.length) {
+    if(s[i] === t[j]) {
+        i++;
+    }
+    j++;
+   }
+   return i === s.length;
+}
+// console.log(isSubsequence("abc", "ahbgdc"))
+// 我以前这样写的
+var newisSubsequence = function(s, t) {
+    for(let i =0; i<s.length; i++) {
+        if(!t.includes(s[i])) return false;
+        let index = t.indexOf(s[i]);
+        t = t.slice(index+1);
+    }
+    return true;
+}
+// console.log(newisSubsequence("axc", "ahbgdc"))
+
+// 0680
+// Valid Palindrome II
+
+var validPalindrome = function(s) {
+    let left = 0;
+    let right = s.length -1;
+    while(left < right) {
+       if(s[left] === s[right]) {
+        left++;
+        right--;
+       } else {
+        let leftString = s.slice(0, left) + s.slice(left+1);
+        let rightString = s.slice(0,right) + s.slice(right+1);
+        return (isPalindrome(leftString) || isPalindrome(rightString))
+       }
+    }
+    return true;
+}
+
+console.log(validPalindrome("abc"))
