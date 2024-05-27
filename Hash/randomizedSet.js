@@ -43,7 +43,7 @@ RandomizedSet.prototype.remove = function(val) {
     // swap the value with the last element
     this.list[index] = lastElement; // list[0] = 3 => [3,2,3]
     // update the map with new index of the last element
-    // map.set(3, 0) 3 is key, 0 is value => {1 =>0, 2=>1, 3=>3} => {1=>0, 2=>1, 3=>0}
+    // map.set(3, 0) 3 is key, 0 is value => {1 =>0, 2=>1, 3=>2} => {1=>0, 2=>1, 3=>0}
     this.map.set(lastElement, index);
 
     // remove last element from array and delete from map
