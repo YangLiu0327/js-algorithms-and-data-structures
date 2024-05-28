@@ -1,26 +1,31 @@
 // 2217 M Find Palindrome With Fixed Length
 // 不能理解
 var kthPalindrome = function(queries, intLength) {
-    // helper function
-    const isPalindrome = (num) => {
-        return num.toString() === num.toString().split('').reverse().join('');
+    let firstLeft;
+    if (intLength % 2 === 0) {
+        firstLeft = "1" + "0".repeat(intLength / 2 - 1);
+    } else {
+        firstLeft = "1" + "0".repeat(Math.floor(intLength / 2));
     }
-
-    const palindromes = [];
-
-    for(let i= Math.pow(10, intLength-1); i< Math.pow(10, intLength); i++) {
-        if(isPalindrome(i)) {
-            palindromes.push(i);
+    
+    let result = [];
+    for (const query of queries) {
+        let left = String(BigInt(firstLeft) + BigInt(query) - BigInt(1));
+        let currResult;
+        if (intLength % 2 === 0) {
+            currResult = left + left.split('').reverse().join('');
+        } else {
+            currResult = left + left.slice(0, -1).split('').reverse().join('');
+        }
+        
+        // 注意若不存在, 返回-1
+        if (currResult.length > intLength) {
+            result.push(-1);
+        } else {
+            result.push(parseInt(currResult));
         }
     }
-    const result = [];
-    for(const query of queries) {
-        if(query <= palindromes.length) {
-            result.push(palindromes[query-1])
-        } else  {
-            result.push(-1)
-        }
-    }
+    
     return result;
 };
 
