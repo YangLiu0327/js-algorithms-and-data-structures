@@ -44,6 +44,7 @@ var searchRange = function(nums, target) {
     findFirst(nums, target);
     findLast(nums, target);
     return result;
+
 }
 
 console.log(searchRange([5,7,7,8,8,10],8))
